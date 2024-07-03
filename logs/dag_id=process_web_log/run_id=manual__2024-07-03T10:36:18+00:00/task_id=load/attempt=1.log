@@ -1,0 +1,22 @@
+[2024-07-03T13:36:33.706+0300] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-03T13:36:33.726+0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_web_log.load manual__2024-07-03T10:36:18+00:00 [queued]>
+[2024-07-03T13:36:33.733+0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_web_log.load manual__2024-07-03T10:36:18+00:00 [queued]>
+[2024-07-03T13:36:33.733+0300] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-07-03T13:36:33.746+0300] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load> on 2024-07-03 10:36:18+00:00
+[2024-07-03T13:36:33.749+0300] {standard_task_runner.py:63} INFO - Started process 44337 to run task
+[2024-07-03T13:36:33.755+0300] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'process_web_log', 'load', 'manual__2024-07-03T10:36:18+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/process_web_log.py', '--cfg-path', '/var/folders/tg/n_tx7dyn7ds_8dsrt01dt3d40000gp/T/tmp50xcd_be']
+[2024-07-03T13:36:33.757+0300] {standard_task_runner.py:91} INFO - Job 39: Subtask load
+[2024-07-03T13:36:33.807+0300] {task_command.py:426} INFO - Running <TaskInstance: process_web_log.load manual__2024-07-03T10:36:18+00:00 [running]> on host hitsh.local
+[2024-07-03T13:36:33.888+0300] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='hisham.e.hassan@gmail.com' AIRFLOW_CTX_DAG_OWNER='Hisham' AIRFLOW_CTX_DAG_ID='process_web_log' AIRFLOW_CTX_TASK_ID='load' AIRFLOW_CTX_EXECUTION_DATE='2024-07-03T10:36:18+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-03T10:36:18+00:00'
+[2024-07-03T13:36:33.890+0300] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-03T13:36:33.891+0300] {subprocess.py:63} INFO - Tmp dir root location: /var/folders/tg/n_tx7dyn7ds_8dsrt01dt3d40000gp/T
+[2024-07-03T13:36:33.892+0300] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'tar -cvf ~/Desktop/Airflow/airflow-env/dags/capstone/weblog.tar ~/Desktop/Airflow/airflow-env/dags/capstone/transformed_data.txt']
+[2024-07-03T13:36:33.899+0300] {subprocess.py:86} INFO - Output:
+[2024-07-03T13:36:33.919+0300] {subprocess.py:93} INFO - tar: Removing leading '/' from member names
+[2024-07-03T13:36:33.920+0300] {subprocess.py:93} INFO - a Users/hitsh/Desktop/Airflow/airflow-env/dags/capstone/transformed_data.txt
+[2024-07-03T13:36:33.921+0300] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-07-03T13:36:33.922+0300] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-03T13:36:33.941+0300] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=process_web_log, task_id=load, run_id=manual__2024-07-03T10:36:18+00:00, execution_date=20240703T103618, start_date=20240703T103633, end_date=20240703T103633
+[2024-07-03T13:36:33.981+0300] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-07-03T13:36:33.996+0300] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-03T13:36:33.997+0300] {local_task_job_runner.py:222} INFO - ::endgroup::

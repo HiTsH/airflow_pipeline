@@ -1,0 +1,41 @@
+[2024-07-02T23:48:40.329+0300] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-02T23:48:40.352+0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_web_log.load manual__2024-07-02T20:35:55.896723+00:00 [queued]>
+[2024-07-02T23:48:40.359+0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_web_log.load manual__2024-07-02T20:35:55.896723+00:00 [queued]>
+[2024-07-02T23:48:40.359+0300] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-07-02T23:48:40.373+0300] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): load> on 2024-07-02 20:35:55.896723+00:00
+[2024-07-02T23:48:40.376+0300] {standard_task_runner.py:63} INFO - Started process 56623 to run task
+[2024-07-02T23:48:40.382+0300] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'process_web_log', 'load', 'manual__2024-07-02T20:35:55.896723+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/process_web_log.py', '--cfg-path', '/var/folders/tg/n_tx7dyn7ds_8dsrt01dt3d40000gp/T/tmpe47j3v3u']
+[2024-07-02T23:48:40.385+0300] {standard_task_runner.py:91} INFO - Job 19: Subtask load
+[2024-07-02T23:48:40.439+0300] {task_command.py:426} INFO - Running <TaskInstance: process_web_log.load manual__2024-07-02T20:35:55.896723+00:00 [running]> on host hitsh.local
+[2024-07-02T23:48:40.510+0300] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='hisham.e.hassan@gmail.com' AIRFLOW_CTX_DAG_OWNER='Hisham' AIRFLOW_CTX_DAG_ID='process_web_log' AIRFLOW_CTX_TASK_ID='load' AIRFLOW_CTX_EXECUTION_DATE='2024-07-02T20:35:55.896723+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-02T20:35:55.896723+00:00'
+[2024-07-02T23:48:40.512+0300] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-02T23:48:40.514+0300] {subprocess.py:63} INFO - Tmp dir root location: /var/folders/tg/n_tx7dyn7ds_8dsrt01dt3d40000gp/T
+[2024-07-02T23:48:40.515+0300] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'tar -cvf ~/Desktop/Airflow/airflow-env/dags/capstone/weblog.tar ~/Desktop/Airflow/airflow-env/dags/capstone/ transformed_data.txt']
+[2024-07-02T23:48:40.521+0300] {subprocess.py:86} INFO - Output:
+[2024-07-02T23:48:40.533+0300] {subprocess.py:93} INFO - tar: Removing leading '/' from member names
+[2024-07-02T23:48:40.534+0300] {subprocess.py:93} INFO - a Users/hitsh/Desktop/Airflow/airflow-env/dags/capstone
+[2024-07-02T23:48:40.535+0300] {subprocess.py:93} INFO - a Users/hitsh/Desktop/Airflow/airflow-env/dags/capstone/weblog.tartar: Users/hitsh/Desktop/Airflow/airflow-env/dags/capstone/weblog.tar: Can't add archive to itself
+[2024-07-02T23:48:40.536+0300] {subprocess.py:93} INFO - 
+[2024-07-02T23:48:40.536+0300] {subprocess.py:93} INFO - a Users/hitsh/Desktop/Airflow/airflow-env/dags/capstone/accesslog.txt
+[2024-07-02T23:48:40.537+0300] {subprocess.py:93} INFO - a Users/hitsh/Desktop/Airflow/airflow-env/dags/capstone/extracted_data.txt
+[2024-07-02T23:48:40.538+0300] {subprocess.py:93} INFO - a Users/hitsh/Desktop/Airflow/airflow-env/dags/capstone/transformed_data.txt
+[2024-07-02T23:48:40.539+0300] {subprocess.py:93} INFO - tar: transformed_data.txt: Cannot stat: No such file or directory
+[2024-07-02T23:48:40.540+0300] {subprocess.py:93} INFO - tar: Error exit delayed from previous errors.
+[2024-07-02T23:48:40.541+0300] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-07-02T23:48:40.542+0300] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-02T23:48:40.551+0300] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-07-02T23:48:40.576+0300] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=process_web_log, task_id=load, run_id=manual__2024-07-02T20:35:55.896723+00:00, execution_date=20240702T203555, start_date=20240702T204840, end_date=20240702T204840
+[2024-07-02T23:48:40.590+0300] {standard_task_runner.py:110} ERROR - Failed to execute job 19 for task load (Bash command failed. The command returned a non-zero exit code 1.; 56623)
+[2024-07-02T23:48:40.604+0300] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-02T23:48:40.621+0300] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-02T23:48:40.623+0300] {local_task_job_runner.py:222} INFO - ::endgroup::

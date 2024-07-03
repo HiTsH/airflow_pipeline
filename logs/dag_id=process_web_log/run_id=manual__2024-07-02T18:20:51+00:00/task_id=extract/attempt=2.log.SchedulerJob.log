@@ -1,0 +1,1 @@
+[2024-07-02T21:39:08.642+0300] {scheduler_job_runner.py:843} ERROR - Executor reports task instance <TaskInstance: process_web_log.extract manual__2024-07-02T18:20:51+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

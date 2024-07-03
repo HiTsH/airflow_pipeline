@@ -1,0 +1,33 @@
+[2024-07-03T09:33:04.691+0300] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-03T09:33:04.711+0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_web_log.extract manual__2024-07-03T06:30:54.837769+00:00 [queued]>
+[2024-07-03T09:33:04.718+0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_web_log.extract manual__2024-07-03T06:30:54.837769+00:00 [queued]>
+[2024-07-03T09:33:04.718+0300] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-07-03T09:33:04.731+0300] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract> on 2024-07-03 06:30:54.837769+00:00
+[2024-07-03T09:33:04.734+0300] {standard_task_runner.py:63} INFO - Started process 3122 to run task
+[2024-07-03T09:33:04.741+0300] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'process_web_log', 'extract', 'manual__2024-07-03T06:30:54.837769+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/process_web_log.py', '--cfg-path', '/var/folders/tg/n_tx7dyn7ds_8dsrt01dt3d40000gp/T/tmp1nnp6gba']
+[2024-07-03T09:33:04.743+0300] {standard_task_runner.py:91} INFO - Job 31: Subtask extract
+[2024-07-03T09:33:04.795+0300] {task_command.py:426} INFO - Running <TaskInstance: process_web_log.extract manual__2024-07-03T06:30:54.837769+00:00 [running]> on host hitsh.local
+[2024-07-03T09:33:04.880+0300] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='hisham.e.hassan@gmail.com' AIRFLOW_CTX_DAG_OWNER='Hisham' AIRFLOW_CTX_DAG_ID='process_web_log' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-07-03T06:30:54.837769+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-03T06:30:54.837769+00:00'
+[2024-07-03T09:33:04.882+0300] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-03T09:33:04.883+0300] {subprocess.py:63} INFO - Tmp dir root location: /var/folders/tg/n_tx7dyn7ds_8dsrt01dt3d40000gp/T
+[2024-07-03T09:33:04.885+0300] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cut -d " " -f 1 capstone/accesslog.txt > capstone/extracted_data.txt']
+[2024-07-03T09:33:04.891+0300] {subprocess.py:86} INFO - Output:
+[2024-07-03T09:33:04.897+0300] {subprocess.py:93} INFO - /bin/bash: capstone/extracted_data.txt: No such file or directory
+[2024-07-03T09:33:04.898+0300] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-07-03T09:33:04.900+0300] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-03T09:33:04.909+0300] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-07-03T09:33:04.933+0300] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=process_web_log, task_id=extract, run_id=manual__2024-07-03T06:30:54.837769+00:00, execution_date=20240703T063054, start_date=20240703T063304, end_date=20240703T063304
+[2024-07-03T09:33:04.946+0300] {standard_task_runner.py:110} ERROR - Failed to execute job 31 for task extract (Bash command failed. The command returned a non-zero exit code 1.; 3122)
+[2024-07-03T09:33:04.968+0300] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-07-03T09:33:04.994+0300] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-03T09:33:05.000+0300] {local_task_job_runner.py:222} INFO - ::endgroup::

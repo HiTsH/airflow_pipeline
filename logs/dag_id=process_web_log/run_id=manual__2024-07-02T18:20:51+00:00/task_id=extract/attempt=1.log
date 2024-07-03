@@ -1,0 +1,39 @@
+[2024-07-02T21:30:53.970+0300] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-02T21:30:53.997+0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_web_log.extract manual__2024-07-02T18:20:51+00:00 [queued]>
+[2024-07-02T21:30:54.005+0300] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_web_log.extract manual__2024-07-02T18:20:51+00:00 [queued]>
+[2024-07-02T21:30:54.005+0300] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-07-02T21:30:54.021+0300] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): extract> on 2024-07-02 18:20:51+00:00
+[2024-07-02T21:30:54.024+0300] {standard_task_runner.py:63} INFO - Started process 45112 to run task
+[2024-07-02T21:30:54.031+0300] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'process_web_log', 'extract', 'manual__2024-07-02T18:20:51+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/process_web_log.py', '--cfg-path', '/var/folders/tg/n_tx7dyn7ds_8dsrt01dt3d40000gp/T/tmpvnhqquae']
+[2024-07-02T21:30:54.034+0300] {standard_task_runner.py:91} INFO - Job 4: Subtask extract
+[2024-07-02T21:30:54.086+0300] {task_command.py:426} INFO - Running <TaskInstance: process_web_log.extract manual__2024-07-02T18:20:51+00:00 [running]> on host hitsh.local
+[2024-07-02T21:30:54.165+0300] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='hisham.e.hassan@gmail.com' AIRFLOW_CTX_DAG_OWNER='Hisham' AIRFLOW_CTX_DAG_ID='process_web_log' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-07-02T18:20:51+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-02T18:20:51+00:00'
+[2024-07-02T21:30:54.167+0300] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-02T21:30:54.169+0300] {subprocess.py:63} INFO - Tmp dir root location: /var/folders/tg/n_tx7dyn7ds_8dsrt01dt3d40000gp/T
+[2024-07-02T21:30:54.170+0300] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\n        cut -d " " -f 1 \n        ~/Desktop/Airflow/dags/capstone/accesslog.txt \n        ~/Desktop/Airflow/dags/capstone/extracted_data.txt\n    ']
+[2024-07-02T21:30:54.177+0300] {subprocess.py:86} INFO - Output:
+[2024-07-02T21:32:25.281+0300] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-07-02T21:32:25.294+0300] {process_utils.py:132} INFO - Sending Signals.SIGTERM to group 45112. PIDs of all processes in the group: [45113, 45114, 45112]
+[2024-07-02T21:32:25.294+0300] {process_utils.py:87} INFO - Sending the signal Signals.SIGTERM to group 45112
+[2024-07-02T21:32:25.295+0300] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-07-02T21:32:25.298+0300] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2024-07-02T21:32:25.299+0300] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-02T21:32:25.308+0300] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/operators/bash.py", line 234, in execute
+    result = self.subprocess_hook.run_command(
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/Users/hitsh/Desktop/Airflow/airflow-env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2024-07-02T21:32:25.354+0300] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=process_web_log, task_id=extract, run_id=manual__2024-07-02T18:20:51+00:00, execution_date=20240702T182051, start_date=20240702T183053, end_date=20240702T183225
+[2024-07-02T21:32:25.397+0300] {process_utils.py:80} INFO - Process psutil.Process(pid=45113, status='terminated', started='21:30:54') (45113) terminated with exit code None
+[2024-07-02T21:32:25.398+0300] {process_utils.py:80} INFO - Process psutil.Process(pid=45114, status='terminated', started='21:30:54') (45114) terminated with exit code None
+[2024-07-02T21:32:25.399+0300] {process_utils.py:80} INFO - Process psutil.Process(pid=45112, status='terminated', exitcode=2, started='21:30:54') (45112) terminated with exit code 2
